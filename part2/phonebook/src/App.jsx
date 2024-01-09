@@ -126,8 +126,7 @@ const App = () => {
             setTimeout(() => {
               setInfoMessage(null)
             }, 5000)
-    }
-      else
+    } else
         personNumbers
         .create(newPerson)
         .then(newPerson => {
@@ -136,6 +135,12 @@ const App = () => {
           setInfoMessage(`Successfully added ${newName}`)
           setTimeout(() => {
             setInfoMessage(null)
+          }, 5000)
+        })
+        .catch(error => {
+          setErrorMessage(error.response.data.error)
+          setTimeout(() => {
+            setErrorMessage(null)
           }, 5000)
         })
   } 
